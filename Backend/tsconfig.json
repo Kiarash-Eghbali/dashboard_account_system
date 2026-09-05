@@ -23,11 +23,11 @@
 		".next/types/**/*.ts",
 		".next/dev/types/**/*.ts",
 		"**/*.mts",
-		"src/app/page.jsx",
-		"src/app/layout.jsx",
-		"src/app/Persian/(auth)/login/page.jsx",
-		"src/server/server.js",
-		"src/server/config/db.js"
+		"Frontend/src/app/page.jsx",
+		"Frontend/src/app/layout.jsx",
+		"Frontend/src/app/Persian/(auth)/login/page.jsx",
+		"Backend/src/server.js",
+		"Backend/src/config/db.js"
 	],
 	"exclude": ["node_modules"]
 }
