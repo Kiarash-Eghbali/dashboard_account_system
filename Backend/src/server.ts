@@ -2,7 +2,10 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import db from "./config/db";
-import "dotenv/config";
+import dotenv from "dotenv";
+dotenv.config();
+
+import authRoutes from "./router/auth";
 
 const app = express();
 
@@ -12,7 +15,7 @@ app.use(cookieParser());
 
 db();
 
-app.use("/api/auth", require("./router/auth.js"));
+app.use("/api/auth", authRoutes);
 
 const PORT: number | string = process.env.PORT || 5000;
 

@@ -1,9 +1,9 @@
-const express = require("express");
+import express from "express";
+import User from "../model/User";
+import bcrypt from "bcryptjs";
+
+
+
 const router = express.Router();
-const User = require("../model/User");
-const PhoneVerify = require("../model/PhonVerify");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 
-
-// first one is register page
+export default router;
