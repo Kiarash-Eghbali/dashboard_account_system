@@ -1,20 +1,14 @@
-const Database = require("better-sqlite3");
-const path = require("path")
-const db = Database(path.join(__dirname,"user.db"))
+import mongoose, { Schema, Model } from "mongoose";
+import UserInterface from "../types/user";
 
+const userModel = new Schema<UserInterface>({
+	username: { type: String, required: true, unique: true },
+	email: { type: String, required: true, unique: true },
+	password: { type: String, required: true },
+	createdAt: { type: Date, default: Date.now },
+	lastLogin: { type: Date, default: null },
+});
 
-db.exec(`
-	CREATE TABLE IF NOT EXISTS users (
-		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		username TEXT UNIQUE NOT NULL,
-		email TEXT UNIQUE NOT NULL,
-		phone INTEGER UNIQUE NOT NULL,
-		password TEXT NOT NULL,
-		createdAt TEXT DEFAULT (datetime('now')),
-		lastLogin TEXT DEFAULT NULL
-	)
+const User: Model<UserInterface> = mongoose.model<UserInterface>("User", userModel);
 
-
-`);
-
-module.exports = db;
+export default User;
