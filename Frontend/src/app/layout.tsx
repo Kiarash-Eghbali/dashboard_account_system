@@ -1,6 +1,7 @@
 import { Inter, Vazirmatn } from "next/font/google";
 import { ReactNode } from "react";
 import "./globals.css";
+import ChangeLangButton from "../components/ChangeLangButton";
 
 const vazirMatn = Vazirmatn({ subsets: ["arabic"] });
 const inter = Inter({ subsets: ["latin"] });
@@ -15,7 +16,10 @@ export default function RootLayout({ children }: { children : ReactNode }) {
 			lang="en"
 			className={`${vazirMatn.className} text-white h-full antialiased`}
 		>
-			<body className="min-h-full flex flex-col">{children}</body>
+			<body className="min-h-full flex flex-col">
+				<ChangeLangButton />
+				{children}
+			</body>
 		</html>
 	);
 }
